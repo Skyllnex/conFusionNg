@@ -9,16 +9,15 @@ export class DishService {
 
   constructor() { }
 
-  getDishes(): Dish[]{
-  	return DISHES;
-  }
-  
-  //cambiado el filter por find
-  getDish(id: string): Dish {
-    return DISHES.find((dish) => (dish.id === id));
+  getDishes(): Promise<Dish[]> {
+    return Promise.resolve(DISHES);
   }
 
-  getFeaturedDish(): Dish {
-    return DISHES.find((dish) => dish.featured);
+  getDish(id: string): Promise<Dish> {
+    return Promise.resolve(DISHES.find((dish) => (dish.id === id)));
+  }
+
+  getFeaturedDish(): Promise<Dish> {
+    return Promise.resolve(DISHES.find((dish) => dish.featured));
   }
 }
