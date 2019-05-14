@@ -16,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 import { DishService } from './services/dish.service';
@@ -58,11 +59,12 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatSlideToggleModule,
     AppRoutingModule
   ],
   providers: [
