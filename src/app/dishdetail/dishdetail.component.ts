@@ -19,16 +19,13 @@ export class DishdetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-  //   this.route.params.subscribe((params:Params)=>{
-		// 	if(!(Object.entries(params).length === 0)){
-		// 		let id = params.id;
-		// 		this.dish = this.dishservice.getDish(id);
-		// 		console.log(id);
-		// 	}
-		// });
-	const id = this.route.snapshot.params.id;
-    this.dishservice.getDish(id)
-      .then(dish => this.dish = dish);
+    this.route.params.subscribe((params:Params)=>{
+			if(!(Object.entries(params).length === 0)){
+				let id = params.id;
+				this.dishservice.getDish(id).subscribe(dish => this.dish = dish);
+			}
+		});
+	// const id = this.route.snapshot.params.id;
   }
 
   goBack(): void {
