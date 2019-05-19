@@ -29,7 +29,4 @@ export class DishService {
   getDishIds(): Observable<string[]> {
     return of(DISHES.map(dish=>dish.id)).pipe(delay(2000));
   }
-  pushDishComment(comment:Comment,id:string): void{
-    DISHES[id].comments.push(comment);
-  }
 }

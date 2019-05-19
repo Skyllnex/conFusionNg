@@ -72,7 +72,7 @@ export class DishdetailComponent implements OnInit {
       author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       rating: 5,
       comment: ['', Validators.required],
-      date: new Date(Date.now()).toISOString()
+      date: ''
     });
     this.commentForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
@@ -80,17 +80,16 @@ export class DishdetailComponent implements OnInit {
   }
 
   onSubmit() {
+    this.commentForm.patchValue({date: new Date(Date.now()).toISOString()});
     this.comment = this.commentForm.value;
-    this.dishservice.pushDishComment(this.comment,this.dish.id);
-    console.log(this.comment);
+    this.dish.comments.push(this.comment);
     this.commentFormDirective.resetForm();
     this.commentForm.reset({
       author: '',
       rating: 5,
       comment: '',
-      date: new Date().toISOString()
+      date: ''
     });
-    //this.feedbackFormDirective.resetForm();
   }
 
   onValueChanged(data?: any) {
